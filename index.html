@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.K.B Repostería Artesanal</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>J.K.B Repostería artesanal</h1>
+            <p>🧁 El sabor inigualable dulce momento 🧁</p>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#oferta">OFERTA</a></li>
+                <li><a href="#pedidos">PEDIDOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="cont-principal">
+        <section id="inicio" class="principal">
+            <h2>VARIEDAD</h2>
+            <p>El sabor casero que alegra tus mañanas. Horneamos cada día con ingredientes naturales, tradición y la mejor calidad artesanal.</p>
+        </section>
+        <section id="oferta">
+            <h2>OFERTA</h2>
+            <div class="contenedor-tarjetas">
+                <article class="producto">
+                    <img src="1.jpg" alt="Queque de quinua">
+                    <h3>Queque de quinua con chispas</h3>
+                    <p class="descripcion">Nutritivo, esponjoso y con un toque especial de chispas de chocolate.</p>
+                    <span class="precio">Bs. 18.00</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Queque de quinua con chispas')">Elegir</button>
+                </article>
+                <article class="producto">
+                    <img src="4.jpg" alt="Queque marmolado">
+                    <h3>Queque marmolado</h3>
+                    <p class="descripcion">La clásica combinación perfecta de vainilla y chocolate.</p>
+                    <span class="precio">Bs. 18.00</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Queque marmolado')">Elegir</button>
+                </article>
+                <article class="producto">
+                    <img src="3.jpg" alt="Queque de avena">
+                    <h3>Queque de avena con chocolate</h3>
+                    <p class="descripcion">Saludable y delicioso, elaborado con avena integral y con un toque de chocolate para darle mas sabor.</p>
+                    <span class="precio">Bs. 18.00</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Queque de avena con chocolate')">Elegir</button>
+                </article>
+                <article class="producto">
+                    <img src="2.jpg" alt="Rollo de queso">
+                    <h3>Rollo de queso</h3>
+                    <p class="descripcion">Masa suave y rellena de abundante queso derretido tradicional.</p>
+                    <span class="precio">Bs. 20.00</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Rollo de queso')">Elegir</button>
+                </article>
+                <article class="producto">
+                    <img src="5.jpg" alt="Empanadas artesanales">
+                    <h3>Empanadas artesanales</h3>
+                    <p class="descripcion">Rellenas de abundante queso con una masa suave y artesanal.</p>
+                    <span class="precio">Bs. 2.00</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Empanadas artesanales')">Elegir</button>
+                </article>
+                <article class="producto">
+                    <img src="7.jpg" alt="Muffins">
+                    <h3>Muffins</h3>
+                    <p class="descripcion">Esponjosos pastelitos decorados con chispas de colores.</p>
+                    <span class="precio">Bs. 1.50</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Mofins (Cupcakes)')">Elegir</button>
+                </article>
+                <article class="producto">
+                    <img src="6.jpg" alt="Brazo gitano">
+                    <h3>Brazo gitano</h3>
+                    <p class="descripcion">Bizcochuelo enrollado relleno de manjar (dulce de leche) y espolvoreado con azúcar glass.</p>
+                    <span class="precio">Bs. 30.00</span>
+                    <button class="btn-select" onclick="seleccionarProducto('Brazo gitano')">Elegir</button>
+                </article>
+
+            </div>
+        </section>
+        <section id="pedidos">
+            <h2>Realiza tu Pedido</h2>
+            <form id="formulario">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Marcela Mamani" required>
+
+                <label for="telefono">Teléfono / Celular:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej. 76552752" required>
+
+                <label for="direccion">Dirección de entrega:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Ej. Av. Cívica #452" required>
+
+                <label for="productoSelect">Pedidos a gusto del cliente:</label>
+                <select id="productoSelect" name="producto" required>
+                    <option value="">Porfavor elige una opción</option>
+                    <option value="Queque de quinua con chispas">Queque de quinua con chispas (Bs. 18)</option>
+                    <option value="Queque marmolado">Queque marmolado (Bs. 18)</option>
+                    <option value="Queque de avena con chocolate">Queque de avena con chocolate (Bs. 18)</option>
+                    <option value="Rollo de queso (y minirollo)">Rollo de queso (Bs. 20)</option>
+                    <option value="Empanadas artesanales">Empanadas artesanales (Bs. 2)</option>
+                    <option value="Mofins (Cupcakes)">Muffins (Bs. 1.50)</option>
+                    <option value="Brazo gitano">Brazo gitano (Bs. 30)</option>
+                </select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+
+                <div class="boton">
+                    <button type="submit" id="btn-enviar">Enviar Pedido</button>
+                    <button type="reset" id="btn-borrar">Borrar campos</button>
+                </div>
+            </form>
+        </section>
+    </main>
+<div class="contenedor-footer">
+    <div class="curva"></div>
+
+    <footer id="contacto" class="pie-pagina">
+        <div class="pie-content">
+            <h3>🥐 J.K.B Repostería Artesanal 🥐</h3>
+            <p>Endulzando tus momentos especiales cada día.</p>
+            <p>Dirección: Av. Cívica, Zona Villa Exaltación, El Alto, Bolivia</p>
+            <p>Teléfono / WhatsApp: +591 76552752</p>
+            <p class="copyright">&copy; 2026 Repostería Artesanal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</div>
+    <div id="modalAlerta" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <h3>✨ ¡Pedido realizado con éxito! ✨</h3>
+            <div id="resumenPedido"></div>
+            <button class="btn-primary" onclick="cerrarModal()">Aceptar</button>
+        </div>
+    </div>
+    <script type="text/javascript" id="script">
+        function seleccionarProducto(nombreProducto) {
+            const select = document.getElementById('productoSelect');
+            select.value = nombreProducto;
+            document.getElementById('pedidos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const formulario = document.getElementById('formulario');
+        const modal = document.getElementById('modalAlerta');
+        const resumenBox = document.getElementById('resumenPedido');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const direccion = document.getElementById('direccion').value.trim();
+            const producto = document.getElementById('productoSelect').value;
+            const cantidad = document.getElementById('cantidad').value;
+
+            resumenBox.innerHTML = `
+                <p><strong>Cliente:</strong> ${nombre}</p>
+                <p><strong>Teléfono:</strong> ${telefono}</p>
+                <p><strong>Dirección:</strong> ${direccion}</p>
+                <p><strong>Producto:</strong> ${producto}</p>
+                <p><strong>Cantidad:</strong> ${cantidad}</p>
+            `;
+
+            modal.style.display = 'flex';
+        });
+
+        function cerrarModal() {
+            modal.style.display = 'none';
+            formulario.reset();
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+</html>
