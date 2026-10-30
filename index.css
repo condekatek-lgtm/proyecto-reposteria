@@ -269,18 +269,6 @@ input:focus, textarea:focus, select:focus {
   padding: 24px;
 }
 
-/* Isotipo SVG en crema cálido suave */
-.splash-logo-wrapper {
-  margin-bottom: 16px;
-}
-
-.splash-icon {
-  width: 52px;
-  height: 52px;
-  color: #eedcc9; /* Tono crema manteca suave */
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
-}
-
 /* Tipografía en tonos crema/vainilla */
 .splash-brand-title {
   margin: 0;
@@ -301,7 +289,7 @@ input:focus, textarea:focus, select:focus {
   color: #ad9c8f; /* Crema tostado medio */
 }
 
-/* Pista de la barra de carga idéntica a YouTube */
+/* Pista de la barra de carga*/
 .splash-progress-track {
   width: 220px;
   height: 3px;
