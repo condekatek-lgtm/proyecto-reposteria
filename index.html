@@ -10,6 +10,35 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+    <!-- SPLASH SCREEN: DULCE MAÑANITA-->
+<div id="splash-screen" role="status" aria-live="polite">
+  <div class="splash-content">
+    
+    <!-- Isotipo Minimalista SVG -->
+    <div class="splash-logo-wrapper">
+      <svg class="splash-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 22L15.5 38H32.5L36 22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="20" y1="24" x2="20" y2="36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        <line x1="24" y1="24" x2="24" y2="36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        <line x1="28" y1="24" x2="28" y2="36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        <path d="M10 22C10 18 13 16 16 16C17 13 21 11 24 11C27 11 31 13 32 16C35 16 38 18 38 22C38 23 37 24 35 24C33 24 32 23 30 23C28 23 27 24 24 24C21 24 20 23 18 23C16 23 15 24 13 24C11 24 10 23 10 22Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+        <circle cx="24" cy="7.5" r="2.5" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- Nombre de la Marca -->
+    <h1 class="splash-brand-title">Dulce Mañanita</h1>
+    <span class="splash-tagline">Repostería Artesanal</span>
+
+    <!-- Barra de progreso continua estilo YouTube -->
+    <div class="splash-progress-track">
+      <div id="splash-progress-bar" class="splash-progress-bar"></div>
+    </div>
+
+  </div>
+</div>
+
+<!--CABECERA-->
     <header class="header">
         <div class="logo">
             <h1>J.K.B Repostería artesanal</h1>
@@ -19,7 +48,7 @@
             <ul>
                 <li><a href="#inicio">INICIO</a></li>
                 <li><a href="#oferta">OFERTA</a></li>
-                <li><a href="#pedidos">PEDIDOS</a></li>
+                <li><a href="pedido.html">PEDIDOS</a></li>
                 <li><a href="#contacto">CONTACTO</a></li>
             </ul>
         </nav>
@@ -75,77 +104,109 @@
                     <span class="precio">Bs. 30.00</span>
                 </article>
             </div>
-        </section>
-        <section id="pedidos">
-            <h2>Realiza tu Pedido</h2>
-            <form id="formulario">
-                <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej. Marcela Mamani" required>
-                <label for="telefono">Teléfono / Celular:</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ej. 76552752" required>
-                <label for="direccion">Dirección de entrega:</label>
-                <input type="text" id="direccion" name="direccion" placeholder="Ej. Av. Cívica #452" required>
-                <label for="productoSelect">Pedidos a gusto del cliente:</label>
-                <select id="productoSelect" name="producto" required>
-                    <option value="">Por favor, elige una opción</option>
-                    <option value="Queque de quinua con chispas">Queque de quinua con chispas (Bs. 18)</option>
-                    <option value="Queque marmolado">Queque marmolado (Bs. 18)</option>
-                    <option value="Queque de avena con chocolate">Queque de avena con chocolate (Bs. 18)</option>
-                    <option value="Rollo de queso (y minirollo)">Rollo de queso (Bs. 20)</option>
-                    <option value="Empanadas artesanales">Empanadas artesanales (Bs. 2)</option>
-                    <option value="Muffins (Cupcakes)">Muffins (Bs. 1.50)</option>
-                    <option value="Brazo gitano">Brazo gitano (Bs. 30)</option>
-                </select>
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
-                <div class="boton">
-                    <button type="submit" id="btn-enviar">Enviar Pedido</button>
-                    <button type="reset" id="btn-borrar">Borrar campos</button>
-                </div>
-            </form>
+            <div class="enlace"><a href="pedido.html">REALIZAR PEDIDO</a></div>
         </section>
     </main>
-    <div class="contenedor-footer">
-        <div class="curva"></div>
         <footer id="contacto" class="pie-pagina">
             <div class="pie-content">
                 <h3>🥐 J.K.B Repostería Artesanal 🥐</h3>
                 <p>Endulzando tus momentos especiales cada día.</p>
                 <p>Dirección: Av. Cívica, Zona Villa Exaltación, El Alto, Bolivia</p>
                 <p>Teléfono / WhatsApp: +591 76552752</p>
-                <p class="copyright">&copy; 2026 Repostería Artesanal. Todos los derechos reservados.</p>
+                <p class="copyright">© 2026 Repostería Artesanal. Todos los derechos reservados.</p>
             </div>
         </footer>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
-        const formulario = document.getElementById('formulario');
+(function() {
+  const splash = document.getElementById('splash-screen');
+  const progressBar = document.getElementById('splash-progress-bar');
 
-formulario.addEventListener('submit', function (event) {
-    event.preventDefault();
+  if (!splash || !progressBar) return;
 
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const direccion = document.getElementById('direccion').value.trim();
-    const producto = document.getElementById('productoSelect').value;
-    const cantidad = document.getElementById('cantidad').value;
+  // VERIFICACIÓN: ¿El usuario ya vio la pantalla de carga en esta sesión?
+  if (sessionStorage.getItem('splashVisto') === 'true') {
+    splash.style.display = 'none';
+    return;
+  }
 
-    Swal.fire({
-        title: '¡Pedido realizado con éxito!',
-        icon: 'success',
-        html: `
-            <p><strong>Cliente:</strong> ${nombre}</p>
-            <p><strong>Teléfono:</strong> ${telefono}</p>
-            <p><strong>Dirección:</strong> ${direccion}</p>
-            <p><strong>Producto:</strong> ${producto}</p>
-            <p><strong>Cantidad:</strong> ${cantidad}</p>
-        `,
-        confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#D79F56'
-    }).then(() => {
-        formulario.reset();
+  let progress = 0;
+  let pageLoaded = false;
+  const targetDuration = 2200; // ~2.2 segundos
+  const updateInterval = 25;   
+  const step = 100 / (targetDuration / updateInterval);
+
+  window.addEventListener('load', () => {
+    pageLoaded = true;
+  });
+
+  const intervalId = setInterval(() => {
+    if (!pageLoaded && progress >= 88) {
+      progress += 0.2;
+    } else {
+      progress += step;
+    }
+
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(intervalId);
+      
+      progressBar.style.width = '100%';
+
+      setTimeout(() => {
+        splash.classList.add('splash-hidden');
+        sessionStorage.setItem('splashVisto', 'true');
+
+        splash.addEventListener('transitionend', () => {
+          splash.style.display = 'none';
+        }, { once: true });
+      }, 250);
+      return;
+    }
+
+    progressBar.style.width = Math.floor(progress) + '%';
+  }, updateInterval);
+
+  // Fallback de seguridad por si acaso
+  setTimeout(() => {
+    if (!splash.classList.contains('splash-hidden')) {
+      splash.classList.add('splash-hidden');
+      sessionStorage.setItem('splashVisto', 'true');
+      setTimeout(() => { splash.style.display = 'none'; }, 600);
+    }
+  }, 5000);
+})();
+
+/*FORMULARIO*/
+const formulario = document.getElementById('formulario');
+
+if (formulario) {
+    formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const direccion = document.getElementById('direccion').value.trim();
+        const producto = document.getElementById('productoSelect').value;
+        const cantidad = document.getElementById('cantidad').value;
+
+        Swal.fire({
+            title: '¡Pedido realizado con éxito!',
+            icon: 'success',
+            html: `
+                <p><strong>Cliente:</strong> ${nombre}</p>
+                <p><strong>Teléfono:</strong> ${telefono}</p>
+                <p><strong>Dirección:</strong> ${direccion}</p>
+                <p><strong>Producto:</strong> ${producto}</p>
+                <p><strong>Cantidad:</strong> ${cantidad}</p>
+            `,
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#D79F56'
+        }).then(() => {
+            formulario.reset();
+        });
     });
-});
+}
     </script>
 </body>
-</html> 
+</html>
