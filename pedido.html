@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEDIDOS YA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>J.K.B Repostería artesanal</h1>
+            <p>🧁 El sabor inigualable dulce momento 🧁</p>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html#inicio">INICIO</a></li>
+                <li><a href="index.html#oferta">OFERTA</a></li>
+                <li><a href="pedido.html">PEDIDOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="cont-principal">
+     <section id="pedidos">
+            <h2>Realiza tu Pedido</h2>
+            <form id="formulario">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Marcela Mamani" required>
+                <label for="telefono">Teléfono / Celular:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej. 76552752" required>
+                <label for="direccion">Dirección de entrega:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Ej. Av. Cívica #452" required>
+                <label for="productoSelect">Pedidos a gusto del cliente:</label>
+                <select id="productoSelect" name="producto" required>
+                    <option value="">Por favor, elige una opción</option>
+                    <option value="Queque de quinua con chispas">Queque de quinua con chispas (Bs. 18)</option>
+                    <option value="Queque marmolado">Queque marmolado (Bs. 18)</option>
+                    <option value="Queque de avena con chocolate">Queque de avena con chocolate (Bs. 18)</option>
+                    <option value="Rollo de queso (y minirollo)">Rollo de queso (Bs. 20)</option>
+                    <option value="Empanadas artesanales">Empanadas artesanales (Bs. 2)</option>
+                    <option value="Muffins (Cupcakes)">Muffins (Bs. 1.50)</option>
+                    <option value="Brazo gitano">Brazo gitano (Bs. 30)</option>
+                </select>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+                <div class="boton">
+                    <button type="submit" id="btn-enviar">Enviar Pedido</button>
+                    <button type="reset" id="btn-borrar">Borrar campos</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer id="contacto" class="pie-pagina">
+            <div class="pie-content">
+                <h3>🥐 J.K.B Repostería Artesanal 🥐</h3>
+                <p>Endulzando tus momentos especiales cada día.</p>
+                <p>Dirección: Av. Cívica, Zona Villa Exaltación, El Alto, Bolivia</p>
+                <p>Teléfono / WhatsApp: +591 76552752</p>
+                <p class="copyright">&copy; 2026 Repostería Artesanal. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        const formulario = document.getElementById('formulario');
+
+formulario.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const direccion = document.getElementById('direccion').value.trim();
+    const producto = document.getElementById('productoSelect').value;
+    const cantidad = document.getElementById('cantidad').value;
+
+    Swal.fire({
+        title: '¡Pedido realizado con éxito!',
+        icon: 'success',
+        html: `
+            <p><strong>Cliente:</strong> ${nombre}</p>
+            <p><strong>Teléfono:</strong> ${telefono}</p>
+            <p><strong>Dirección:</strong> ${direccion}</p>
+            <p><strong>Producto:</strong> ${producto}</p>
+            <p><strong>Cantidad:</strong> ${cantidad}</p>
+        `,
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#D79F56'
+    }).then(() => {
+        formulario.reset();
+    });
+});
+    </script>
+</body>
+</html>
