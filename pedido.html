@@ -52,6 +52,8 @@
                 </select>
                 <label for="cantidad">Cantidad:</label>
                 <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
                 <div class="boton">
                     <button type="submit" id="btn-enviar">Enviar Pedido</button>
                     <button type="reset" id="btn-borrar">Borrar campos</button>
@@ -68,35 +70,40 @@
                 <p class="copyright">&copy; 2026 Repostería Artesanal. Todos los derechos reservados.</p>
             </div>
         </footer>
+    <!-- Formulario -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="text/javascript">
+    <script>
         const formulario = document.getElementById('formulario');
 
-formulario.addEventListener('submit', function (event) {
-    event.preventDefault();
+        if (formulario) {
+            formulario.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const direccion = document.getElementById('direccion').value.trim();
-    const producto = document.getElementById('productoSelect').value;
-    const cantidad = document.getElementById('cantidad').value;
+                // muestra los datos
+                const nombre = document.getElementById('nombre').value.trim();
+                const telefono = document.getElementById('telefono').value.trim();
+                const direccion = document.getElementById('direccion').value.trim();
+                const producto = document.getElementById('productoSelect').value;
+                const cantidad = document.getElementById('cantidad').value;
 
-    Swal.fire({
-        title: '¡Pedido realizado con éxito!',
-        icon: 'success',
-        html: `
-            <p><strong>Cliente:</strong> ${nombre}</p>
-            <p><strong>Teléfono:</strong> ${telefono}</p>
-            <p><strong>Dirección:</strong> ${direccion}</p>
-            <p><strong>Producto:</strong> ${producto}</p>
-            <p><strong>Cantidad:</strong> ${cantidad}</p>
-        `,
-        confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#D79F56'
-    }).then(() => {
-        formulario.reset();
-    });
-});
+                // Mostramos la ventana emergente con SweetAlert2
+                Swal.fire({
+                    title: '☕ ¡Pedido realizado con éxito!',
+                    icon: 'success',
+                    html: `
+                        <p><strong>Cliente:</strong> ${nombre}</p>
+                        <p><strong>Teléfono:</strong> ${telefono}</p>
+                        <p><strong>Dirección:</strong> ${direccion}</p>
+                        <p><strong>Producto:</strong> ${producto}</p>
+                        <p><strong>Cantidad:</strong> ${cantidad}</p>
+                    `,
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#D79F56'
+                }).then(() => {
+                    formulario.reset(); // Limpia el formulario
+                });
+            });
+        }
     </script>
 </body>
 </html>
