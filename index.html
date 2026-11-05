@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.K.B Repostería Artesanal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css"><nav class="nav">
+</head>
+<body>
+    <!-- SPLASH SCREEN: DULCE MAÑANITA-->
+<div id="splash-screen" role="status" aria-live="polite">
+  <div class="splash-content">
+    <!-- Nombre de la Marca -->
+    <h1 class="splash-brand-title">REPOSTERIA ARTESANAL</h1>
+    <span class="splash-tagline">El sabor inigualable dulce momento</span>
+
+    <!-- Barra de progreso continua estilo YouTube -->
+    <div class="splash-progress-track">
+      <div id="splash-progress-bar" class="splash-progress-bar"></div>
+    </div>
+
+  </div>
+</div>
+
+<!--CABECERA-->
+    <header class="header">
+        <div class="logo">
+            <h1>J.K.B Repostería artesanal</h1>
+            <p>🧁 El sabor inigualable dulce momento 🧁</p>
+        </div>
+        <nav>
+<ul class="nav-links">
+        <li><a href="#inicio">INICIO</a></li>
+        <li class="desplegable">
+            <a href="#oferta">OFERTAS</a>
+            <ul class="menu-desplegable">
+                <li><a href="pastel.html">Sección Pastel</a></li>
+                <li><a href="desayuno.html">Sección Desayuno</a></li>
+            </ul>
+        </li>
+        <li><a href="pedido.html">PEDIDOS</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+    </ul>
+</nav>
+    </header>
+    <main class="cont-principal">
+        <section id="inicio" class="principal">
+            <h2>VARIEDAD</h2>
+            <p>El sabor casero que alegra tus mañanas. Horneamos cada día con ingredientes naturales, tradición y la mejor calidad artesanal.</p>
+        </section>
+        <section id="oferta">
+            <h2>OFERTA</h2>
+            <div class="contenedor-tarjetas">
+                <article class="producto">
+                    <img src="1.jpg" alt="Queque de quinua">
+                    <h3>Queque de quinua con chispas</h3>
+                    <p class="descripcion">Nutritivo, esponjoso y con un toque especial de chispas de chocolate.</p>
+                    <span class="precio">Bs. 18.00</span>
+                </article>
+                <article class="producto">
+                    <img src="4.jpg" alt="Queque marmolado">
+                    <h3>Queque marmolado</h3>
+                    <p class="descripcion">La clásica combinación perfecta de vainilla y chocolate.</p>
+                    <span class="precio">Bs. 18.00</span>
+                </article>
+                <article class="producto">
+                    <img src="3.jpg" alt="Queque de avena">
+                    <h3>Queque de avena con chocolate</h3>
+                    <p class="descripcion">Saludable y delicioso, elaborado con avena integral y con un toque de chocolate para darle más sabor.</p>
+                    <span class="precio">Bs. 18.00</span>
+                </article>
+                <article class="producto">
+                    <img src="2.jpg" alt="Rollo de queso">
+                    <h3>Rollo de queso</h3>
+                    <p class="descripcion">Masa suave y rellena de abundante queso derretido tradicional.</p>
+                    <span class="precio">Bs. 20.00</span>
+                </article>
+                <article class="producto">
+                    <img src="5.jpg" alt="Empanadas artesanales">
+                    <h3>Empanadas artesanales</h3>
+                    <p class="descripcion">Rellenas de abundante queso con una masa suave y artesanal.</p>
+                    <span class="precio">Bs. 2.00</span>
+                </article>
+                <article class="producto">
+                    <img src="7.jpg" alt="Muffins">
+                    <h3>Muffins</h3>
+                    <p class="descripcion">Esponjosos pastelitos decorados con chispas de colores.</p>
+                    <span class="precio">Bs. 1.50</span>
+                </article>
+                <article class="producto">
+                    <img src="6.jpg" alt="Brazo gitano">
+                    <h3>Brazo gitano</h3>
+                    <p class="descripcion">Bizcochuelo enrollado relleno de manjar (dulce de leche) y espolvoreado con azúcar glass.</p>
+                    <span class="precio">Bs. 30.00</span>
+                </article>
+            </div>
+            <div class="enlace"><a href="pedido.html">REALIZAR PEDIDO</a></div>
+        </section>
+    </main>
+        <footer id="contacto" class="pie-pagina">
+            <div class="pie-content">
+                <h3>🥐 J.K.B Repostería Artesanal 🥐</h3>
+                <p>Endulzando tus momentos especiales cada día.</p>
+                <p>Dirección: Av. Cívica, Zona Villa Exaltación, El Alto, Bolivia</p>
+                <p>Teléfono / WhatsApp: +591 76552752</p>
+                <p class="copyright">© 2026 Repostería Artesanal. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+(function() {
+  const splash = document.getElementById('splash-screen');
+  const progressBar = document.getElementById('splash-progress-bar');
+
+  if (!splash || !progressBar) return;
+
+  // VERIFICACIÓN: para saber si ya estubo el usuario ahi antes
+  if (sessionStorage.getItem('splashVisto') === 'true') {
+    splash.style.display = 'none';
+    return;
+  }
+
+  let progress = 0;
+  let pageLoaded = false;
+  const targetDuration = 2200; // ~2.2 segundos
+  const updateInterval = 25;   
+  const step = 100 / (targetDuration / updateInterval);
+
+  window.addEventListener('load', () => {
+    pageLoaded = true;
+  });
+
+  const intervalId = setInterval(() => {
+    if (!pageLoaded && progress >= 88) {
+      progress += 0.2;
+    } else {
+      progress += step;
+    }
+
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(intervalId);
+      
+      progressBar.style.width = '100%';
+
+      setTimeout(() => {
+        splash.classList.add('splash-hidden');
+        sessionStorage.setItem('splashVisto', 'true');
+
+        splash.addEventListener('transitionend', () => {
+          splash.style.display = 'none';
+        }, { once: true });
+      }, 250);
+      return;
+    }
+
+    progressBar.style.width = Math.floor(progress) + '%';
+  }, updateInterval);
+
+  // Fallback de seguridad por si acaso
+  setTimeout(() => {
+    if (!splash.classList.contains('splash-hidden')) {
+      splash.classList.add('splash-hidden');
+      sessionStorage.setItem('splashVisto', 'true');
+      setTimeout(() => { splash.style.display = 'none'; }, 600);
+    }
+  }, 5000);
+})();
+
+/*FORMULARIO*/
+const formulario = document.getElementById('formulario');
+
+if (formulario) {
+    formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const direccion = document.getElementById('direccion').value.trim();
+        const producto = document.getElementById('productoSelect').value;
+        const cantidad = document.getElementById('cantidad').value;
+
+        Swal.fire({
+            title: '¡Pedido realizado con éxito!',
+            icon: 'success',
+            html: `
+                <p><strong>Cliente:</strong> ${nombre}</p>
+                <p><strong>Teléfono:</strong> ${telefono}</p>
+                <p><strong>Dirección:</strong> ${direccion}</p>
+                <p><strong>Producto:</strong> ${producto}</p>
+                <p><strong>Cantidad:</strong> ${cantidad}</p>
+            `,
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#D79F56'
+        }).then(() => {
+            formulario.reset();
+        });
+    });
+}
+    </script>
+</body>
+</html>

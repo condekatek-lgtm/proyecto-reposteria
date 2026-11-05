@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FDFBF7;
+    color: #3D370A;
+    line-height: 1.6;
+}
+.header {
+   /* background-color: #F5E3BA;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);*/
+background-color: #F5E3BA;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo h1 {
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: 'Segoe Script', 'Dancing Script', cursive;
+    color: #3D370A;
+}
+.logo p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #8C6A21;
+    margin-top: 0.2rem;
+    font-family: 'Forte', 'Dancing Script', cursive;
+}
+.nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 1rem;
+}
+.nav a {
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.3s ease;
+    color: #3D370A;
+    font-weight: bold;
+}
+.nav a:hover {
+    color: #D79F56;
+}
+.nav-links{
+    list-style: none; /*quita los puntos de las viñetas*/
+    display: flex; /*alinea los elementos en una fila*/
+}
+.nav-links li{
+    position: relative;/*posicionar los submenus*/
+}
+.nav-links a{
+    display: block;
+    text-decoration: none;
+    padding:15px 15px;
+}
+.nav-links li a:hover{
+    background-color: #B5A27A;
+    color:#D79F56;
+}
+.menu-desplegable{
+    position: absolute;
+    left: 0;
+    top: 100%;/* Se pega exactamente debajo de la barra sin dejar espacios */
+    background-color: #F5E3BA;
+    min-width: 150px;
+    list-style: none;
+    border-radius: 6px;
+    opacity: 0;/*hace que desparezca el menu desplegable, sino que coloca de forma transparente*/
+    visibility: hidden;
+    padding: 8px 0; /* Margen superior e inferior interno más estético */
+}
+.menu-desplegable li{
+    width: 100%;
+}
+.menu-desplegable a{/*estilos para enlaces*/
+    color: #3D370A;
+    padding: 10px 15px; /*Reduce el espacio vertical entre "Sección" y "Pastel" */
+    display: block;
+    white-space: nowrap; /* Evita que el texto se baje feo si la caja es angosta */
+    font-size: 1rem;
+}
+.desplegable:hover .menu-desplegable{
+    opacity: 1;
+    visibility: visible;
+}
+.cont-principal {
+    max-width: 1100px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+.cont-principal p{
+    margin-bottom: 1.5rem; color: #6E5616;
+}
+section {
+    background-color: #F5F0C1;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(140, 0, 0, 0.1);
+}
+h2 {
+    color: #92873F;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #CFB85E;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    font-size: 1.4rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+.principal {
+    padding: 10rem 2rem;
+    background-color: #F5F098;
+    color: #5C4A10;
+    text-align: center;
+    border-radius: 12px;
+    background: linear-gradient(rgba(245, 227, 186, 0.78), rgba(253, 251, 247, 0.66)), 
+                url("pastel1.jpg") center/cover;
+}
+.principal p {
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.contenedor-tarjetas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.producto {
+    background-color: #F1E7C6;
+    border: 1px solid #E3CF8F;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+.producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    cursor: zoom-in;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.producto h3 {
+    color: #5A481C;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+.descripcion {
+    font-size: 0.9rem;
+    color: #6E5616;
+    margin-bottom: 1rem;
+}
+.precio {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #B07421;
+    margin-bottom: 0.8rem;
+}
+/* Contenedor para centrar en la página */
+.enlace {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Estilo del botón */
+.enlace a {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: #D79F56; /* Color dorado/café de la marca */
+    color: #FFFFFF; /* Texto blanco legible */
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive, sans-serif;
+    border-radius: 30px; /* Bordes redondeados afelpados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+    transition: all 0.3s ease;
+}
+
+/* Efecto interactivo al pasar el cursor (Hover) */
+.enlace a:hover {
+    background-color: #B07421; /* Tono más oscuro al pasar el mouse */
+    color: #FFFFFF;
+    transform: translateY(-3px); /* Se eleva levemente */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+/*FORMULARIO*/
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+label {
+    font-weight: bold;
+    color: #5A481C;
+    margin-top: 0.3rem;
+}
+input, textarea, select {
+    padding: 0.6rem;
+    border: 1px solid #5A481C;
+    border-radius: 6px;
+    background-color: #D1B369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: #3D370A;
+}
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #B07421;
+    box-shadow: 0 0 4px rgba(176, 116, 33, 0.4);
+}
+.boton {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+.boton button {
+    flex: 1;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+#btn-enviar {
+    background-color: #C8B793;
+    color: #2F2818;
+}
+#btn-enviar:hover {
+    background-color: #B5A27A;
+}
+#btn-borrar {
+    background-color: #B59C78;
+    color: #2F2818;
+}
+#btn-borrar:hover {
+    background-color: #9E8563;
+}
+.pie-pagina {
+    background-color: #6F5C34;
+    color: white;
+    text-align: center;
+    padding: 2.5rem 5%;
+    /* CURVA EN FORMA DE ARCO */
+    border-top-left-radius: 50% 80px;
+    border-top-right-radius: 50% 80px;
+    /* Separación para que no tape los botones */
+    margin-top: 3rem;
+    position: relative;
+}
+.pie-content h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+.pie-content p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #E6DCD3;
+}
+.copyright {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #B5A295;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+}
+/* Ajustes para el mensaje emergente de SweetAlert2 */
+.swal2-popup .swal2-html-container {
+    text-align: center;
+}
+.swal2-popup .swal2-html-container p {
+    margin-bottom: 0.4rem;
+}
+  /* CONTENEDOR PRINCIPAL DEL SPLASH SCREEN */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Tono crema tostado oscuro / moka cálido */
+  background: radial-gradient(circle at center, #2e2620 0%, #221c17 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.5s ease;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Desvanecimiento al finalizar */
+#splash-screen.splash-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+/* Tipografía en tonos crema/vainilla */
+.splash-brand-title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #f7ede2; /* Vainilla claro */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.splash-tagline {
+  margin-top: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #ad9c8f; /* Crema tostado medio */
+}
+
+/* Pista de la barra de carga*/
+.splash-progress-track {
+  width: 220px;
+  height: 3px;
+  background-color: rgba(247, 237, 226, 0.12); /* Gris/crema apagado */
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 36px;
+  position: relative;
+}
+
+/* Barra de progreso fluida (Rojo frambuesa / repostería) */
+.splash-progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #e05d5d; /* Rojo dulce / cereza al estilo YouTube */
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(224, 93, 93, 0.4);
+}
+  /* Sutil respiración en el ícono */
+  @keyframes splashPulse {
+    0% { transform: scale(0.97); opacity: 0.88; }
+    100% { transform: scale(1.03); opacity: 1; }
+  }
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    .logo h1 {
+        text-align: left;
+    }
+    .contenedor-tarjetas {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
