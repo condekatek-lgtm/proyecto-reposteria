@@ -10,19 +10,15 @@
     <link rel="stylesheet" type="text/css" href="index.css"><nav class="nav">
 </head>
 <body>
-    <!-- SPLASH SCREEN: pantalla de carga-->
-<div id="splash-screen" role="status" aria-live="polite">
-  <div class="splash-content">
-    <!-- Nombre de la Marca -->
-    <h1 class="splash-brand-title">REPOSTERIA ARTESANAL</h1>
-    <span class="splash-tagline">El sabor inigualable dulce momento</span>
-
-    <!-- Barra de progreso continua estilo YouTube -->
-    <div class="splash-progress-track">
-      <div id="splash-progress-bar" class="splash-progress-bar"></div>
+    <!-- pantalla de carga -->
+<div id="splash-screen">
+    <div class="splash-content">
+        <h1 class="splash-brand-title">J.K.B Repostería Artesanal</h1>
+        <p class="splash-tagline">El sabor inigualable dulce momento</p>
+        <div class="splash-progress-track">
+            <div class="splash-progress-bar"></div>
+        </div>
     </div>
-
-  </div>
 </div>
 
 <!--CABECERA-->
@@ -109,79 +105,5 @@
                 <p class="copyright">© 2026 Repostería Artesanal. Todos los derechos reservados.</p>
             </div>
         </footer>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="text/javascript">
-<script type="text/javascript">
-(function() {
-    // 1. Busca el contenedor principal del pantalla de carga en el HTML por su ID
-    const splash = document.getElementById('splash-screen');
-    
-    // 2. Busca la barra interna de progreso
-    const progressBar = document.getElementById('splash-progress-bar');
-    // 3. Validación de seguridad: si no existen estos elementos en la página, detiene el script
-    if (!splash || !progressBar) return;
-
-    // 4. VERIFICACIÓN: Revisa si el usuario ya vio la animación en esta pestaña del navegador
-    if (sessionStorage.getItem('splashVisto') === 'true') {
-        splash.style.display = 'none'; // Si ya lo vio, lo oculta de inmediato para que no vuelva a cargar
-        return;
-    }
-
-    // 5. Declaración de variables para el control del tiempo y la barra
-    let progress = 0;              // Porcentaje inicial de carga (0%)
-    let pageLoaded = false;        // Bandera para saber si la página ya terminó de cargar por completo
-    const targetDuration = 2200;   // Duración estimada de la animación (~2.2 segundos)
-    const updateInterval = 25;     // Cada cuántos milisegundos se actualiza la barra (fluidez)
-    const step = 100 / (targetDuration / updateInterval); // Cuánto avanza la barra en cada intervalo
-
-    // 6. Escucha cuando la ventana termina de cargar todos sus recursos (imágenes, estilos, etc.)
-    window.addEventListener('load', () => {
-        pageLoaded = true;
-    });
-
-    // 7. Crea un bucle de tiempo (temporizador) que ejecuta instrucciones cada cierto intervalo
-    const intervalId = setInterval(() => {
-        // Control de velocidad: si la página aún no carga y llega al 88%, frena un poco para esperar
-        if (!pageLoaded && progress >= 88) {
-            progress += 0.2;
-        } else {
-            progress += step; // Avanza normalmente según el paso calculado
-        }
-
-        // Si el progreso llega o supera el 100%
-        if (progress >= 100) {
-            progress = 100;
-            clearInterval(intervalId); // Detiene el temporizador
-            
-            progressBar.style.width = '100%'; // Asegura que la barra llegue al tope visualmente
-
-            // Espera un cuarto de segundo antes de ocultar el splash
-            setTimeout(() => {
-                splash.classList.add('splash-hidden'); // Añade la clase CSS que desvanece la pantalla
-                sessionStorage.setItem('splashVisto', 'true'); // Guarda que ya vio el splash en la sesión
-
-                // Cuando termina la animación de desvanecimiento, lo oculta por completo del DOM
-                splash.addEventListener('transitionend', () => {
-                    splash.style.display = 'none';
-                }, { once: true });
-            }, 250);
-            return;
-        }
-
-        // Actualiza el ancho visual de la barra de progreso en porcentajes enteros
-        progressBar.style.width = Math.floor(progress) + '%';
-    }, updateInterval);
-
-    // 8. Fallback de seguridad: si pasa 5 segundos y por alguna razón trabó, lo quita a la fuerza
-    setTimeout(() => {
-        if (!splash.classList.contains('splash-hidden')) {
-            splash.classList.add('splash-hidden');
-            sessionStorage.setItem('splashVisto', 'true');
-            setTimeout(() => { splash.style.display = 'none'; }, 600);
-        }
-    }, 5000);
-})();
-</script>
-    </script>
 </body>
 </html>
