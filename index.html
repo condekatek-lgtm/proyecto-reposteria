@@ -111,14 +111,13 @@
         </footer>
     <!--pantalla de recarga-->
     <script type="text/javascript">
-    // Si el usuario ya vio la pantalla de carga en esta pestaña, la borramos de inmediato
     if (sessionStorage.getItem('splashVisto') === 'true') {
         const splash = document.getElementById('splash-screen');
-        if (splash) splash.remove(); // Lo borra del HTML al instante para que ni estorbe
+        if (splash) splash.remove(); // se borra
     } else {
-        // Si es su primera vez, guardamos en la memoria que ya la vio
+        // Si es su primera vez, se guarda en la memoria que ya la vio
         sessionStorage.setItem('splashVisto', 'true');
     }
-</script>
+        </script>
 </body>
 </html>
